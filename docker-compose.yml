@@ -1,0 +1,33 @@
+version: '3'
+
+networks:
+  api-network:
+
+services: 
+  php-cli:
+    build:
+      context: ./php-cli
+    tty: true
+    volumes:
+      - ../:/var/www
+    networks: 
+      - api-network
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "51321:80"
+    volumes:
+      - ../:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - api-network
+    
+  php-fpm:
+    build:
+      context: ./php-fpm
+    volumes:
+      - ../:/var/www
+    networks:
+      - api-network

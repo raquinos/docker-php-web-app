@@ -1,0 +1,19 @@
+FROM php:7.3-fpm-alpine
+
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+# Install and enable xdebug
+# https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug-2.7.1 \
+    && docker-php-ext-enable xdebug
+
+# change workdir to other than /var/www/html as defined in
+# https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
+# so we can definitely delete /var/www/html
+# workdir creates the directory if not exists! https://docs.docker.com/engine/reference/builder/#workdir
+WORKDIR /var/www
+
+# remove html directory created in https://github.com/docker-library/php/blob/master/7.3/alpine3.9/fpm/Dockerfile
+# not needed in our setup
+RUN rm -rf /var/www/html

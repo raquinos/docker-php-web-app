@@ -1,0 +1,8 @@
+[mysqld]
+
+# issue on Docker Toolbox on Windows 10 Home when using volumes to persist database
+# error message: 'aio write' returned OS error 122
+# https://stackoverflow.com/a/48631919/7483716  
+# "... AIO is not supported on shared folders, or at least on some versions of Windows"
+# Solution: add innodb_use_native_aio=0 to MySQL configuration file
+innodb_use_native_aio = 0

@@ -31,3 +31,26 @@ services:
       - ../:/var/www
     networks:
       - api-network
+  
+  database:
+    build: 
+      context: ./mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: "my-super-secret-password"
+      MYSQL_DATABASE: "user-database"
+      MYSQL_USER: "db-user"
+      MYSQL_PASSWORD: "user-password"
+    volumes:
+      - ../database:/var/lib/mysql # make sure this directory exists!
+
+  adminer:
+    build: 
+      context: ./adminer
+    depends_on:
+      - database
+    restart: always
+    ports: 
+      - "51322:8080"

@@ -1,0 +1,5 @@
+FROM mysql:5.7
+
+# additional configuration file
+# refer to individual files for details
+COPY ./conf.d/aio.cnf /etc/mysql/conf.d/

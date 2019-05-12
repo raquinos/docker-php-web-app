@@ -31,7 +31,7 @@ where the present repo was cloned in `.docker` directory. In this case, all file
 
 ## Suggested reading
 
-[Official PHP Docker Image documentation](https://hub.docker.com/_/php)
-[Official Nginx Docker Image documentation](https://hub.docker.com/_/nginx)
-[Official MySQL Docker Image documentation](https://hub.docker.com/_/mysql)
-[Official Adminer Docker Image documentation](https://hub.docker.com/_/adminer)
+- [Official PHP Docker Image documentation](https://hub.docker.com/_/php)
+- [Official Nginx Docker Image documentation](https://hub.docker.com/_/nginx)
+- [Official MySQL Docker Image documentation](https://hub.docker.com/_/mysql)
+- [Official Adminer Docker Image documentation](https://hub.docker.com/_/adminer)

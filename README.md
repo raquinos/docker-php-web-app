@@ -29,7 +29,7 @@ composer.lock
 ``` 
 where the present repo was cloned in `.docker` directory. In this case, all files and folders alongside `.docker` are mounted into `/var/www/` directory in both Nginx and PHP-FPM containers, and Nginx serves files located at `public/`, while MySQL datafiles will be located under `database/`.
 
-##Suggested reading
+## Suggested reading
 
 [Official PHP Docker Image documentation](https://hub.docker.com/_/php)
 [Official Nginx Docker Image documentation](https://hub.docker.com/_/nginx)
